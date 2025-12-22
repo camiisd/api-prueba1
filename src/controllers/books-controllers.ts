@@ -29,7 +29,15 @@ export const getBookById = (req: Request, res: Response): void => {
     
 }
 
-// 3. Controlador para actualizar un libro
+// 3. Controlador para crear un libro
+export const createBook = (req: Request, res: Response): void => {
+    // Llamamos al modelo
+    const newBook = BooksModel.addBook(req.body);
+    // Devolver el libro recien creada
+    res.status(201).json(newBook);
+};
+
+// 4. Controlador para actualizar un libro
 export const updateBook = (req: Request, res: Response): void => {
     //Extraer el parametro del endpoint
     const { id } = req.params
@@ -46,7 +54,7 @@ export const updateBook = (req: Request, res: Response): void => {
     res.json(updateBook)
 }
 
-// 4. Controlador para eliminar
+// 5. Controlador para eliminar
 export const deleteBook = (req: Request, res: Response): void => {
     const { id } = req.params // Extraer el id del endpoint
     //Llamar al método del modelo

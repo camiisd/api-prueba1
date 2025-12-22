@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from "express";
 
 // Validamos como ingresan los datos en una frase
-export const validateQuote = (req: Request, res: Response, next: NextFunction): void => {
+export const validateBook = (req: Request, res: Response, next: NextFunction): void => {
     // Extraemos text y author del cuerpo de la solicitud
     const { title, author, year } = req.body;
 

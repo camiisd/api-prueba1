@@ -14,7 +14,7 @@ interface Book {
 };
 
 //Encapsulamos todas las funciones en una sola clase
-export class BookModel {
+export class BooksModel {
     // 1. Leer todos los libros desde el archivo
     static getAllBooks(): Book[] {
         // Obtener TODOS los datos desde nuestra base de datos
