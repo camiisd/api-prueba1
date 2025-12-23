@@ -82,7 +82,7 @@ export const getBookByAuthor = (req: Request, res: Response): void => {
         return
     }
 
-    //Si lo encuentra, de vuelve la frase
+    //Si lo encuentra, de vuelve EL Libro
     res.json(book)
 
     
