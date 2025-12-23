@@ -25,7 +25,7 @@ export class BooksModel {
     // 2. Libro según ID
     static getBookById (id: string) : Book | undefined {
         const data = this.getAllBooks(); //Obtiene todas los libros
-        return data.find((book) => book.id === id) //Devuelve el libro por ID
+        return data.find(book => String(book.id) === String(id)) //Devuelve el libro por ID
     }
 
     // 3. Crear un libro
@@ -34,7 +34,7 @@ export class BooksModel {
         const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
         // Creamos un nuevo ID basado en la longitud del array
-        const newId = (data.Books.length + 1).toString();
+        const newId = (data.books.length + 1).toString();
 
         //Creamos libro
         const book = { ...newBook, id: newId}
@@ -59,7 +59,7 @@ export class BooksModel {
         //Si el ID existe, se actualiza la frase cambiando los datos existentes
         data.books[index] = { ...data.books[index], updatedData}
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-        return data.quotes[index]
+        return data.books[index]
     }
 
     // 5. Eliminar libro

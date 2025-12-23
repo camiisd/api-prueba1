@@ -18,10 +18,10 @@ app.use(express.json())
 //Permitir cors para todas las rutas
 app.use(cors())
 
-app.use(authMiddleware)
+/*app.use(authMiddleware)*/
 
 //Configuración de rutas principales de la app
-app.use('/api/books', booksRouter)
+app.use('/api/books', authMiddleware, booksRouter)
 
 //Middleware para manejar rutas que no existen
 app.use((req: Request, res: Response) => {

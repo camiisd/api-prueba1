@@ -1,13 +1,20 @@
 {
-    "Info": {
-        "name": "Quotes databases",
-        "version": "1.0.0",
-        "total": 1
-    },
-    "quotes":{
-        "id": "1",
-        "title": "El principito",
+  "info": {
+    "name": "Quotes databases",
+    "version": "1.0.0",
+    "total": 1
+  },
+  "books": [
+    {
+      "id": "1",
+      "title": "El principito",
+      "author": "Antoine de Saint-Exupéry",
+      "year": 1943,
+      "updatedData": {
+        "title": "El Principito (Edición actualizada)",
         "author": "Antoine de Saint-Exupéry",
         "year": 1943
+      }
     }
+  ]
 }
