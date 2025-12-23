@@ -80,4 +80,10 @@ export class BooksModel {
         return true;
         
     }
+
+    // 6. Buscar libro por nombre de autor
+    static getBookByAuthor (author: string) : Book | undefined {
+        const data = this.getAllBooks(); //Obtiene todas los libros
+        return data.find((book) => book.author === author) //Devuelve el libro por ID
+    }
 }

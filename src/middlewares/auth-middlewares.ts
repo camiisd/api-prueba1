@@ -5,11 +5,12 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction):
     const token = req.headers['authorization'];
 
     // Verifica si existe un token
-    if (!token || token !== 'Bearer my-secret-token') {
+    if (!token || token !== 'Bearer 123456') {
         res.status(401).json({ error: 'No autorizado'});
         return // Finaliza la ejecucion
     }
 
     // Si la autenticacion pasa, continua con el siguiente middleware
+    console.log("Solicitud recibida")
     next();
 };

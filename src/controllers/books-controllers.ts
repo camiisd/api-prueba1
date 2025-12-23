@@ -19,7 +19,7 @@ export const getBookById = (req: Request, res: Response): void => {
 
     //Si no lo encuentra, devuelve error
     if(!book) {
-        res.status(404).json({ error: 'Frase no encontrada.' });
+        res.status(404).json({ error: 'libro no encontrado.' });
         return
     }
 
@@ -68,4 +68,22 @@ export const deleteBook = (req: Request, res: Response): void => {
 
     //Si es eliminado, mandamos respuesta
     res.status(204).send()
+}
+
+// 6. Controlador para obtener libro por author
+export const getBookByAuthor = (req: Request, res: Response): void => {
+    const { author } = req.params // Extrae el parametro ID del endpoint
+    //Llamar al método del modelo
+    const book = BooksModel.getBookByAuthor(author)
+
+    //Si no lo encuentra, devuelve error
+    if(!book) {
+        res.status(404).json({ error: 'Author no encontrado.' });
+        return
+    }
+
+    //Si lo encuentra, de vuelve la frase
+    res.json(book)
+
+    
 }
